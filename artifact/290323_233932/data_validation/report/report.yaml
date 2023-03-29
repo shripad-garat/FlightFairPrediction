@@ -1,0 +1,8 @@
+test_df_report:
+  Is_required_features_avalable:
+    missing_column: []
+    required_feature: true
+train_df_report:
+  Is_required_features_avalable:
+    missing_column: []
+    required_feature: true

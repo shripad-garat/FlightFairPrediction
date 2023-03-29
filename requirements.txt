@@ -1,0 +1,23 @@
+pandas
+numpy
+openpyxl
+dill
+dnspython
+fastapi
+Flask
+httptools
+imblearn
+mypy-boto3-s3
+pip-chill
+pymongo
+python-dotenv
+pyyaml
+sklearn
+types-s3transfer
+uvicorn
+watchfiles
+websockets
+wincertstore
+xgboost
+apache-airflow
+-e .

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flight Fare Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Flight Planer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/traning">Retraning</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+
+    <div class = "container">
+      <h2>Fill the details of your journy</h2>
+
+
+      <form class="row g-3 needs-validation" novalidate action="/prediction" method="POST">
+        
+        
+        <div class="col-md-3">
+          <label for="Airline" class="form-label">Airline</label>
+          <select class="form-select" name="Airline" id="Airline" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Jet Airways</option>
+            <option>IndiGo</option>
+            <option>Air India</option>
+            <option>Multiple carriers</option>
+            <option>SpiceJet</option>
+            <option>Vistara</option>
+            <option>Air Asia</option>
+            <option>GoAir</option>
+            <option>Multiple carriers Premium economy</option>
+            <option>Jet Airways Business</option>
+            <option>Vistara Premium economy</option>
+            <option>Trujet</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a Airline.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="Date_of_Journey" class="form-label">Date of Journey</label>
+          <input type="text" class="form-control" name="Date_of_Journey"id="Date_of_Journey" value="dd/mm/yyyy" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <label for="Source" class="form-label">Source</label>
+          <select class="form-select" name="Source" id="Source" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Banglore</option>
+            <option>Kolkata</option>
+            <option>Delhi</option>
+            <option>Chennai</option>
+            <option>Mumbai</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a Source.
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <label for="Destination" class="form-label">Source</label>
+          <select class="form-select" name="Destination" id="Destination" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Banglore</option>
+            <option>Kolkata</option>
+            <option>Delhi</option>
+            <option>Hyderabad</option>
+            <option>Cochin</option>
+            <option>New Delhi</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a Destination.
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <label for="Route" class="form-label">Route</label>
+          <select class="form-select" name="Route" id="Route" required>
+            <option selected disabled value="">Choose...</option>
+            <option>BLR → DEL</option>
+            <option>CCU → IXR → BBI → BLR</option>
+            <option>DEL → LKO → BOM → COK</option>
+            <option>CCU → NAG → BLR</option>
+            <option>BLR → NAG → DEL</option>
+            <option>CCU → BLR</option>
+            <option>BLR → BOM → DEL</option>
+            <option>DEL → BOM → COK</option>
+            <option>DEL → BLR → COK</option>
+            <option>MAA → CCU</option>
+            <option>CCU → BOM → BLR</option>
+            <option>DEL → AMD → BOM → COK</option>
+            <option>DEL → PNQ → COK</option>
+            <option>DEL → CCU → BOM → COK</option>
+            <option>BLR → COK → DEL</option>
+            <option>DEL → IDR → BOM → COK</option>
+            <option>DEL → LKO → COK</option>
+            <option>CCU → GAU → DEL → BLR</option>
+            <option>DEL → NAG → BOM → COK</option>
+            <option>CCU → MAA → BLR</option>
+            <option>DEL → HYD → COK</option>
+            <option>CCU → HYD → BLR</option>
+            <option>DEL → COK</option>
+            <option>CCU → DEL → BLR</option>
+            <option>BLR → BOM → AMD → DEL</option>
+            <option>BOM → DEL → HYD</option>
+            <option>DEL → MAA → COK</option>
+            <option>BOM → HYD</option>
+            <option>DEL → BHO → BOM → COK</option>
+            <option>DEL → JAI → BOM → COK</option>
+            <option>DEL → ATQ → BOM → COK</option>
+            <option>DEL → JDH → BOM → COK</option>
+            <option>CCU → BBI → BOM → BLR</option>
+            <option>BLR → MAA → DEL</option>
+            <option>DEL → GOI → BOM → COK</option>
+            <option>DEL → BDQ → BOM → COK</option>
+            <option>CCU → JAI → BOM → BLR</option>
+            <option>CCU → BBI → BLR</option>
+            <option>BLR → HYD → DEL</option>
+            <option>DEL → TRV → COK</option>
+            <option>CCU → IXR → DEL → BLR</option>
+            <option>DEL → IXU → BOM → COK</option>
+            <option>CCU → IXB → BLR</option>
+            <option>BLR → BOM → JDH → DEL</option>
+            <option>DEL → UDR → BOM → COK</option>
+            <option>DEL → HYD → MAA → COK</option>
+            <option>CCU → BOM → COK → BLR</option>
+            <option>BLR → CCU → DEL</option>
+            <option>CCU → BOM → GOI → BLR</option>
+            <option>DEL → RPR → NAG → BOM → COK</option>
+            <option>DEL → HYD → BOM → COK</option>
+            <option>CCU → DEL → AMD → BLR</option>
+            <option>CCU → PNQ → BLR</option>
+            <option>BLR → CCU → GAU → DEL</option>
+            <option>CCU → DEL → COK → BLR</option>
+            <option>BLR → PNQ → DEL</option>
+            <option>BOM → JDH → DEL → HYD</option>
+            <option>BLR → BOM → BHO → DEL</option>
+            <option>DEL → AMD → COK</option>
+            <option>BLR → LKO → DEL</option>
+            <option>CCU → GAU → BLR</option>
+            <option>BOM → GOI → HYD</option>
+            <option>CCU → BOM → AMD → BLR</option>
+            <option>CCU → BBI → IXR → DEL → BLR</option>
+            <option>DEL → DED → BOM → COK</option>
+            <option>DEL → MAA → BOM → COK</option>
+            <option>BLR → AMD → DEL</option>
+            <option>BLR → VGA → DEL</option>
+            <option>CCU → JAI → DEL → BLR</option>
+            <option>CCU → AMD → BLR</option>
+            <option>CCU → VNS → DEL → BLR</option>
+            <option>BLR → BOM → IDR → DEL</option>
+            <option>BLR → BBI → DEL</option>
+            <option>BLR → GOI → DEL</option>
+            <option>BOM → AMD → ISK → HYD</option>
+            <option>BOM → DED → DEL → HYD</option>
+            <option>DEL → IXC → BOM → COK</option>
+            <option>CCU → PAT → BLR</option>
+            <option>BLR → CCU → BBI → DEL</option>
+            <option>CCU → BBI → HYD → BLR</option>
+            <option>BLR → BOM → NAG → DEL</option>
+            <option>BLR → CCU → BBI → HYD → DEL</option>
+            <option>BLR → GAU → DEL</option>
+            <option>BOM → BHO → DEL → HYD</option>
+            <option>BOM → JLR → HYD</option>
+            <option>BLR → HYD → VGA → DEL</option>
+            <option>CCU → KNU → BLR</option>
+            <option>CCU → BOM → PNQ → BLR</option>
+            <option>DEL → BBI → COK</option>
+            <option>BLR → VGA → HYD → DEL</option>
+            <option>BOM → JDH → JAI → DEL → HYD</option>
+            <option>DEL → GWL → IDR → BOM → COK</option>
+            <option>CCU → RPR → HYD → BLR</option>
+            <option>CCU → VTZ → BLR</option>
+            <option>CCU → DEL → VGA → BLR</option>
+            <option>BLR → BOM → IDR → GWL → DEL</option>
+            <option>CCU → DEL → COK → TRV → BLR</option>
+            <option>BOM → COK → MAA → HYD</option>
+            <option>BOM → NDC → HYD</option>
+            <option>BLR → BDQ → DEL</option>
+            <option>CCU → BOM → TRV → BLR</option>
+            <option>CCU → BOM → HBX → BLR</option>
+            <option>BOM → BDQ → DEL → HYD</option>
+            <option>BOM → CCU → HYD</option>
+            <option>BLR → TRV → COK → DEL</option>
+            <option>BLR → IDR → DEL</option>
+            <option>CCU → IXZ → MAA → BLR</option>
+            <option>CCU → GAU → IMF → DEL → BLR</option>
+            <option>BOM → GOI → PNQ → HYD</option>
+            <option>BOM → BLR → CCU → BBI → HYD</option>
+            <option>BOM → MAA → HYD</option>
+            <option>BLR → BOM → UDR → DEL</option>
+            <option>BOM → UDR → DEL → HYD</option>
+            <option>BLR → VGA → VTZ → DEL</option>
+            <option>BLR → HBX → BOM → BHO → DEL</option>
+            <option>CCU → IXA → BLR</option>
+            <option>BOM → RPR → VTZ → HYD</option>
+            <option>BLR → HBX → BOM → AMD → DEL</option>
+            <option>BOM → IDR → DEL → HYD</option>
+            <option>BOM → BLR → HYD</option>
+            <option>BLR → STV → DEL</option>
+            <option>CCU → IXB → DEL → BLR</option>
+            <option>BOM → JAI → DEL → HYD</option>
+            <option>BOM → VNS → DEL → HYD</option>
+            <option>BLR → HBX → BOM → NAG → DEL</option>
+            <option>BLR → BOM → IXC → DEL</option>
+            <option>BLR → CCU → BBI → HYD → VGA → DEL</option>
+            <option>BOM → BBI → HYD</option>
+          
+          </select>
+          <div class="invalid-feedback">
+            Please select a Destination.
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <label for="Dep_Time" class="form-label">Dep_Time</label>
+          <input type="text" class="form-control" name="Dep_Time"id="Dep_Time" value="hh:mm" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+
+
+        </div><div class="col-md-4">
+          <label for="Arrival_Time" class="form-label">Arrival_Time</label>
+          <input type="text" class="form-control" name="Arrival_Time"id="Arrival_Time" value="hh:mm" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <label for="Duration" class="form-label">Duration</label>
+          <input type="text" class="form-control" name = "Duration" id="Duration" value="00h 00m" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        
+        <div class="col-md-3">
+          <label for="Total_Stops" class="form-label">State</label>
+          <select class="form-select" name = "Total_Stops" id="Total_Stops" required>
+            <option selected disabled value="">Choose...</option>
+            <option>non-stop</option>
+            <option>1 stop</option>
+            <option>2 stops</option>
+            <option>3 stops</option>
+            <option>4 stops</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a no. of stops.
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <label for="Additional_Info" class="form-label">State</label>
+          <select class="form-select" name = "Additional_Info" id="Additional_Info" required>
+            <option selected disabled value="">Choose...</option>
+            <option>No info</option>
+            <option>In-flight meal not included</option>
+            <option>No check-in baggage included</option>
+            <option>1 Short layover</option>
+            <option>1 Long layover</option>
+            <option>Change airports</option>
+            <option>Business class</option>
+            <option>Red-eye flight</option>
+            <option>2 Long layover</option> 
+          </select>
+          <div class="invalid-feedback">
+            Please select a additional info.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <h2>Predicted Fair<span class="badge bg-secondary">{{output}}</span></h2>
+    </div>
+  </body>
+</html>
+    
